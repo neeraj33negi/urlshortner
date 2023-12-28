@@ -1,4 +1,4 @@
-package models;
+package com.urlshortner.entities;
 
 import lombok.AllArgsConstructor;
 import lombok.Builder;

@@ -1,5 +1,5 @@
 CREATE KEYSPACE url_shortner
   WITH REPLICATION = {
    'class' : 'NetworkTopologyStrategy',
-   'datacenter1' : 3
+   'datacenter1' : 1
   };
