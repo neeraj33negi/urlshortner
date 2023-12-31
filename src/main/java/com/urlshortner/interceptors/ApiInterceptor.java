@@ -9,6 +9,8 @@ import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.stereotype.Component;
 import org.springframework.web.servlet.HandlerInterceptor;
 
+import java.util.Objects;
+
 @Component
 public class ApiInterceptor implements HandlerInterceptor {
 
@@ -21,7 +23,7 @@ public class ApiInterceptor implements HandlerInterceptor {
                              HttpServletResponse response,
                              Object handler) throws Exception {
         String userToken = request.getHeader(AUTH_HEADER);
-        if (Boolean.FALSE.equals(userToken.isBlank())) {
+        if (Objects.nonNull(userToken) && Boolean.FALSE.equals(userToken.isBlank())) {
             User user = userService.findByToken(userToken);
             SecurityContextHolder.getContext().setAuthentication(new UserAuthentication(user));
         }
