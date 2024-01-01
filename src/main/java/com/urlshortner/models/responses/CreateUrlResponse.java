@@ -19,4 +19,5 @@ public class CreateUrlResponse {
     private String shortUrl;
     private String longUrl;
     private Long expiresAt;
+    private String errors;
 }

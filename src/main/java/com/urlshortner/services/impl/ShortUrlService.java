@@ -9,6 +9,8 @@ import com.urlshortner.services.IShortUrlService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.net.URISyntaxException;
+
 @Service
 public class ShortUrlService implements IShortUrlService {
 
@@ -16,7 +18,7 @@ public class ShortUrlService implements IShortUrlService {
     private ShortUrlRepoService repoService;
 
     @Override
-    public CreateUrlResponse createShortUrl(CreateUrlRequest createUrlRequest) {
+    public CreateUrlResponse createShortUrl(CreateUrlRequest createUrlRequest) throws URISyntaxException {
         ShortUrl shortUrl = repoService.createShortUrl(createUrlRequest);
         return ShortUrlMapper.INSTANCE.urlToResponse(shortUrl);
     }
